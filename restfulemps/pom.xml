@@ -12,6 +12,7 @@
     <artifactId>restfulemps</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>restfulemps</name>
+    <packaging>war</packaging>
     <description>REST API project for Spring Boot</description>
 
     <properties>
@@ -60,6 +61,11 @@
             <version>2.9.8</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -69,6 +75,8 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
+
+        <finalName>${artifactId}</finalName>
     </build>
 
 </project>

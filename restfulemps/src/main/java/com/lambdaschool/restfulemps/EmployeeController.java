@@ -2,6 +2,7 @@ package com.lambdaschool.restfulemps;
 
 import org.springframework.hateoas.Resource;
 import org.springframework.hateoas.Resources;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,6 +14,7 @@ import java.util.stream.Collectors;
 import static org.springframework.hateoas.core.DummyInvocationUtils.methodOn;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 
+@RequestMapping(path = {}, produces = MediaType.APPLICATION_JSON_VALUE)
 @RestController
 public class EmployeeController
 {
