@@ -1,14 +1,9 @@
 package com.lambdaschool.webemployees.model;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.util.concurrent.atomic.AtomicLong;
 
 public class Employee
 {
-    private static final Logger logger = LoggerFactory.getLogger(Employee.class);
-
     private static final AtomicLong counter = new AtomicLong();
     private long id;
     private String fname;
@@ -27,9 +22,6 @@ public class Employee
         this.has401k = has401k;
         this.companyID = companyID;
         this.healthPlanID = healthPlanID;
-
-        logger.info("We created an employee");
-        logger.debug("Yes we created an employee with id " + this.id);
     }
 
     public Employee (Employee toClone)
@@ -111,11 +103,5 @@ public class Employee
     public void setHealthPlanID(int healthPlanID)
     {
         this.healthPlanID = healthPlanID;
-    }
-
-    @Override
-    public String toString()
-    {
-        return "Employee{" + "id=" + id + ", fname='" + fname + '\'' + ", lname='" + lname + '\'' + ", salary=" + salary + ", has401k=" + has401k + ", companyID=" + companyID + ", healthPlanID=" + healthPlanID + '}';
     }
 }
