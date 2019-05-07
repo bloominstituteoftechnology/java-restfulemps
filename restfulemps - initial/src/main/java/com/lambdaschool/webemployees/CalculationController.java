@@ -13,14 +13,15 @@ import org.springframework.web.bind.annotation.RestController;
 public class CalculationController
 {
     @GetMapping(value = "/salary/{id}/{raise}")
-    public ResponseEntity<?> checkRaise(
-            @PathVariable
-                    long id,
-            @PathVariable
-                    double raise)
-    {
-        Employee tempEmp = new Employee(WebemployeesApplication.ourEmpList.findEmployee(e -> (e.getId() == id)));
-        tempEmp.setSalary(tempEmp.getSalary() * (1.0 + raise));
-        return new ResponseEntity<>(tempEmp, HttpStatus.OK);
-    }
+public ResponseEntity<?> checkRaise(
+        @PathVariable
+                long id,
+        @PathVariable
+                double raise)
+{
+    System.out.println(raise);
+    Employee tempEmp = new Employee(WebemployeesApplication.ourEmpList.findEmployee(e -> (e.getId() == id)));
+    tempEmp.setSalary(tempEmp.getSalary() * (1.0 + raise));
+    return new ResponseEntity<>(tempEmp, HttpStatus.OK);
+}
 }

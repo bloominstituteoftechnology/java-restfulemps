@@ -96,7 +96,7 @@
 
     <!--*** Part 5-->
 
-    <logger name="com.lambdaschool.webemployees" level="OFF">
+    <logger name="com.lambdaschool.webemployees" level="TRACE">
         <appender-ref ref="STDOUT" />
     </logger>
 </configuration>
