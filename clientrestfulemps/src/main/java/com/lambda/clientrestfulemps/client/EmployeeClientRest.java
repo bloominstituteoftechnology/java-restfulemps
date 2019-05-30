@@ -19,15 +19,6 @@ public class EmployeeClientRest
 
     public ArrayList<Employee> getAllEmployees()
     {
-//        List<HttpMessageConverter<?>> messageConverters = new ArrayList<HttpMessageConverter<?>>();
-//        //Add the Jackson Message converter
-//        MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();
-//        // Note: here we are making this converter to process any kind of response,
-//        // not only application/*json, which is the default behaviour
-//        converter.setSupportedMediaTypes(Collections.singletonList(MediaType.ALL));
-//        messageConverters.add(converter);
-//        restTemplate.setMessageConverters(messageConverters);
-
         ParameterizedTypeReference<ArrayList<Employee>> responseType =
                 new ParameterizedTypeReference<ArrayList<Employee>>() {};
         ResponseEntity<ArrayList<Employee>> responseEntity =
@@ -41,7 +32,7 @@ public class EmployeeClientRest
     public static void main(String[] args)
     {
         EmployeeClientRest client = new EmployeeClientRest();
-        List<Employee> allEmployees = client.getAllEmployees();
+        ArrayList<Employee> allEmployees = client.getAllEmployees();
         System.out.println(allEmployees);
     }
 }
