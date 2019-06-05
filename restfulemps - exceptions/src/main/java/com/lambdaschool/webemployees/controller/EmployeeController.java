@@ -68,6 +68,9 @@ public class EmployeeController
     {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("employees");
+
+        WebemployeesApplication.ourEmpList.empList.sort((e1, e2) -> e1.getLname().compareToIgnoreCase(e2.getLname()));
+
         mav.addObject("employeeList", WebemployeesApplication.ourEmpList.empList);
 
         return mav;
