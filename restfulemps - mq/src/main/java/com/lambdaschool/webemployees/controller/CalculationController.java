@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+
 @RestController
 // with EnableWebMvc on, anything after a . is truncated so must add regex
 // localhost:8080/calc/salary/1/0.5
@@ -23,10 +25,10 @@ public class CalculationController
     RabbitTemplate rt;
 
     @GetMapping(value = "/salary/{id}/{raise:.+}")
-    public ResponseEntity<?> checkRaise(
+    public ResponseEntity<?> checkRaise(HttpServletRequest request,
             @PathVariable
                     long id,
-            @PathVariable
+                                        @PathVariable
                     double raise)
     {
         Employee tempEmp;
@@ -39,7 +41,7 @@ public class CalculationController
         }
         tempEmp.setSalary(tempEmp.getSalary() * (1.0 + raise));
 
-        MessageDetail message = new MessageDetail("Checking raise for " + id + " for " + raise, 1, true);
+        MessageDetail message = new MessageDetail(request.getRequestURI() + " accessed", 1, true);
         rt.convertAndSend(WebemployeesApplication.QUEUE_NAME_LOW, message);
         return new ResponseEntity<>(tempEmp, HttpStatus.OK);
     }
