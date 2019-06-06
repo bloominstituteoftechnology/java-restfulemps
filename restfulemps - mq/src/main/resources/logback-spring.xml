@@ -29,7 +29,7 @@
     </appender>
 
 <!--
-    <root level="INFO">
+    <root level="INFO" additivity="false">
         <appender-ref ref="STDOUT"/>
     </root>
 -->
@@ -39,7 +39,7 @@
 <!--*** Part 2-->
 
 <!--
-    <root level="INFO">
+    <root level="INFO" additivity="false">
         <appender-ref ref="FILE"/>
         <appender-ref ref="STDOUT"/>
     </root>
@@ -67,36 +67,36 @@
         </rollingPolicy>
     </appender>
 
-    <root level="OFF">
+    <root level="OFF" additivity="false">
         <appender-ref ref="FILE"/>
         <appender-ref ref="STDOUT"/>
     </root>
 
 
     <!--*** Part 3-->
-    <logger name="org.springframework.boot" level="OFF">
+    <logger name="org.springframework.boot" level="OFF" additivity="false">
         <appender-ref ref="STDOUT" />
     </logger>
     <!--*** Part 3-->
 
-    <logger name="org.apache.catalina" level="OFF">
+    <logger name="org.apache.catalina" level="OFF" additivity="false">
         <appender-ref ref="TOMCAT" />
         <appender-ref ref="STDOUT" />
     </logger>
 
-    <logger name="org.apache.coyote" level="OFF">
+    <logger name="org.apache.coyote" level="OFF" additivity="false">
         <appender-ref ref="TOMCAT" />
         <appender-ref ref="STDOUT" />
     </logger>
 
-    <logger name="org.apache.tomcat" level="OFF">
+    <logger name="org.apache.tomcat" level="OFF" additivity="false">
         <appender-ref ref="TOMCAT" />
         <appender-ref ref="STDOUT" />
     </logger>
 
     <!--*** Part 5-->
 
-    <logger name="com.lambdaschool.webemployees" level="TRACE">
+    <logger name="com.lambdaschool.webemployees" level="TRACE" additivity="false">
         <appender-ref ref="STDOUT" />
     </logger>
 </configuration>
